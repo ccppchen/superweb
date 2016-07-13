@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.fullPage.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    
+</head>
+<body>
+    <div class="loading">
+        <div class="loading-center">
+            <img src="img/puff.svg" alt="">
+            <p>疯狂加载中...</p>
+        </div>
+    </div>
+    <div class="box">
+        <div class="section">
+
+            <ul>
+                <li>logo</li>
+                <li>font</li>
+                <li>font</li>
+                <li>点击进入</li>
+            </ul>
+
+        </div>
+        <div class="section">
+           <ul>
+               <li>logo</li>
+               <li>biaoyu</li>
+               <li>~</li>
+               <li>~</li>
+               <li>~</li>
+           </ul>
+           <div class="di">导航块</div>
+
+        </div>
+        <div class="section">
+            <div class="wrap">
+                <div class="box02 animated">第3</div>
+                <div class="box02 animated">第3</div>
+                <div class="box02 animated">第3</div>
+                <div class="di">导航块</div>
+            </div>
+
+        </div>
+        <div class="section">
+            <div></div>
+
+        </div>
+    </div>
+    <div class="circle-bottom">
+        <span></span>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/jquery.fullPage.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(function(){
+        $('.box').fullpage({
+            sectionsColor:['#fcf','#ccc','#cff','#ffc'],
+            scrollingSpeed:1200,
+            afterLoad:function(anchor,index){
+                if(index==3){
+                    
+                    
+                   
+                }
+            },
+            onLeave:function(index,nextIndex,dir){
+
+                if(nextIndex==3){
+                    $('.box02').show().addClass('bounceInLeft').removeClass('bounceOutLeft');
+                }
+                if(index==3){
+                    $('.box02').addClass('bounceOutLeft').removeClass('bounceInLeft');
+                }
+            }
+        });
+        $('.circle-bottom').hover(function() {
+            $(this).children('span').addClass('active');
+        }, function() {
+            $(this).children('span').removeClass('active');
+        });
+        $(window).on('load', function(){
+            // 延迟
+            setTimeout(function(){
+                $('.loading').fadeOut('fast');
+            }, 1000);
+        });
+    })
+    </script>
+</body>
+</html>
