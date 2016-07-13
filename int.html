@@ -63,6 +63,13 @@
     </div>
     <div class="circle-bottom">
         <span></span>
+        <ul class="circle-list">
+            <li class="circle-item">case</li>
+            <li class="circle-item">about me</li>
+            <li class="circle-item">experience</li>
+            <li class="circle-item">contanct</li>
+            <li class="circle-item">work</li>
+        </ul>
     </div>
     <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
     <script src="js/jquery.fullPage.min.js" type="text/javascript"></script>
@@ -70,7 +77,7 @@
     $(function(){
         $('.box').fullpage({
             sectionsColor:['#fcf','#ccc','#cff','#ffc'],
-            scrollingSpeed:1200,
+            scrollingSpeed: 1200,
             afterLoad:function(anchor,index){
                 if(index==3){
                     
@@ -90,8 +97,14 @@
         });
         $('.circle-bottom').hover(function() {
             $(this).children('span').addClass('active');
+            $('.circle-list').fadeIn('fast');
         }, function() {
             $(this).children('span').removeClass('active');
+            $('.circle-list').fadeOut('fast');
+        });
+        $('.circle-bottom').on('click', function(){
+            $(this).children('span').toggleClass('active');
+            $('.circle-list').fadeToggle('fast');
         });
         $(window).on('load', function(){
             // 延迟
